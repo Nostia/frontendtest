@@ -12,12 +12,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-    clickedSquares: {
-      type: Array as () => string[],
-      required: true
-    }
-  }
+  inject: ['clickedSquares'],
 })
 </script>
 

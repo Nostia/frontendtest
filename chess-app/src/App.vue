@@ -1,29 +1,39 @@
 <template>
   <div class="app">
-    <Chessboard :clickedSquares="clickedSquares" @squareClicked="handleSquareClicked" />
-    <Sidebar :clickedSquares="clickedSquares" />
+    <Chessboard/>
+    <Sidebar/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed} from 'vue'
 import Chessboard from './components/Chessboard.vue'
 import Sidebar from './components/Sidebar.vue'
 
 export default defineComponent({
+
   components: {
     Chessboard,
     Sidebar
   },
   data() {
     return {
-      clickedSquares: [] as string[]
+      clickedSquares: [] as string[],
+      activeSquareId: '' as string
+    }
+  },
+  provide() {
+    return {
+      clickedSquares: computed(() => this.clickedSquares),
+      handleSquareClicked: computed(() => this.handleSquareClicked),
+      activeSquareId: computed(() => this.activeSquareId),
     }
   },
   methods: {
     handleSquareClicked(squareId: string): void {
       this.clickedSquares.push(squareId)
-    }
+      this.activeSquareId = squareId
+    },
   }
 })
 </script>
@@ -42,7 +52,6 @@ body {
 @media screen and (max-width: $desktop-width) {
   .app {
     flex-direction: column;
-    /*margin: 0;*/
   }
 }
 

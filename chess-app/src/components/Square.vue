@@ -11,21 +11,17 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  inject: ['activeSquareId', 'handleSquareClicked'],
   props: {
     squareId: {
       type: String,
       required: true
-    },
-    activeSquareId: {
-      type: String,
-      required: false
     },
     isSquareWhite: {
       type: Boolean,
       required: false
     }
   },
-  emits: ['squareClicked'],
   computed: {
     isSquareActive() {
       return this.activeSquareId === this.squareId
@@ -46,7 +42,7 @@ export default defineComponent({
   },
   methods: {
     handleClick(): void {
-      this.$emit('squareClicked', this.squareId)
+      this.handleSquareClicked(this.squareId)
     }
   }
 })

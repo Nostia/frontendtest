@@ -60,14 +60,14 @@ export default defineComponent({
 }
 
 .square-clicked {
-  background-color: yellow !important;
+  background-color: #6BB2DB !important;
 }
 
 .square-white {
-  background-color: #f2f2f2;
+  background-color: #F7F5F2;
 }
 
 .square-black {
-  background-color: #808080;
+  background-color: #C4AF9A;
 }
 </style>

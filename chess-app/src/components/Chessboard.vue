@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
+import { defineComponent } from 'vue'
 import Square from './Square.vue'
 import { generateSquaresIds } from '@/helpers'
 export default defineComponent({
@@ -35,22 +35,31 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .chessboard {
+    width: $board-width--mobile;
+    height: $board-width--mobile;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border: $border-width solid #1E1E24;
+  }
 
-.chessboard-wrapper {
-  width: 100%;
-  height: 100%;
-}
+  .chessboard-wrapper {
+    width: 100vmin;
+    height: 100%;
+  }
 
-.chessboard {
-  --border-width:1px;
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  margin: 0 auto;
-  width: calc(100vmin - 10px - var(--border-width) * 2);
-  height: calc(100vmin - 10px - var(--border-width) * 2);
-  border: var(--border-width) solid #222222;
-}
+  @media screen and (min-width: $desktop-width) {
+    .chessboard {
+      grid-template-columns: repeat(8, 1fr);
+      width: $board-width--desktop;
+      height: $board-width--desktop;
+    }
 
+    .chessboard-wrapper {
+      width: 100%;
+    }
+  }
 </style>

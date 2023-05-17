@@ -1,5 +1,6 @@
 <template>
   <div class="sidebar">
+    <h2>Clicked squares</h2>
     <ul>
       <li v-for="square in clickedSquares" :key="square">
         {{ square }}
@@ -18,32 +19,33 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .sidebar {
-  width: 500px;
-  min-width: 500px;
-  height: 100%;
-  background-color: lightgray;
-  margin: 0 0 0 10px;
+  background-color: #F7F5F2;
+  box-sizing: border-box;
+  padding: 15px;
 }
 
-@media screen and (max-width: $desktop-width) {
-
+@media screen and (orientation: portrait) {
   .sidebar {
-    --border-width:1px;
-    width: calc(100vmin - 10px - var(--border-width) * 2);
-    min-width: calc(100vmin - 10px - var(--border-width) * 2);
+    width: $board-width--mobile;
+    min-width: $board-width--mobile;
     margin: 10px auto 0;
   }
-  }
-
-@media screen and (max-width: $desktop-width) and (orientation: landscape){
-
+}
+@media screen and (orientation: landscape){
   .sidebar {
-    --border-width:1px;
     width: 100%;
-    min-width: 100%;
     margin: 0 0 0 5px;
   }
 }
+
+@media (min-width: $desktop-width){
+  .sidebar {
+    max-width: 500px;
+    margin: 0 0 0 10px;
+    padding: 15px 50px;
+  }
+}
+
 
 
 </style>

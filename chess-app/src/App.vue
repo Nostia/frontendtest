@@ -49,17 +49,10 @@ body {
   margin: 5px;
 }
 
-@media screen and (max-width: $desktop-width) {
+@media screen and (max-width: $desktop-width) and (orientation: portrait){
   .app {
     flex-direction: column;
-  }
-}
-
-@media screen and (max-width: $desktop-width) and (orientation: landscape) {
-  .app {
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
+    margin: 0;
   }
 }
 </style>

@@ -1,1 +1,6 @@
 $desktop-width: 1024px;
+
+$border-width: 1px;
+
+$board-width--desktop: calc(100vmin - 10px - #{$border-width} * 2);
+$board-width--mobile: calc(100vmin - 10px - #{$border-width} * 2);

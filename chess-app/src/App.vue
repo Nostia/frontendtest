@@ -1,17 +1,16 @@
 <template>
   <div class="app">
-    <Chessboard/>
-    <Sidebar/>
+    <Chessboard />
+    <Sidebar />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed} from 'vue'
+import { defineComponent, computed } from 'vue'
 import Chessboard from './components/Chessboard.vue'
 import Sidebar from './components/Sidebar.vue'
 
 export default defineComponent({
-
   components: {
     Chessboard,
     Sidebar
@@ -26,14 +25,14 @@ export default defineComponent({
     return {
       clickedSquares: computed(() => this.clickedSquares),
       handleSquareClicked: computed(() => this.handleSquareClicked),
-      activeSquareId: computed(() => this.activeSquareId),
+      activeSquareId: computed(() => this.activeSquareId)
     }
   },
   methods: {
     handleSquareClicked(squareId: string): void {
       this.clickedSquares.push(squareId)
       this.activeSquareId = squareId
-    },
+    }
   }
 })
 </script>
@@ -49,7 +48,7 @@ body {
   margin: 5px;
 }
 
-@media screen and (max-width: $desktop-width) and (orientation: portrait){
+@media screen and (max-width: $desktop-width) and (orientation: portrait) {
   .app {
     flex-direction: column;
     margin: 0;

@@ -13,13 +13,13 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  inject: ['clickedSquares'],
+  inject: ['clickedSquares']
 })
 </script>
 
 <style scoped lang="scss">
 .sidebar {
-  background-color: #F7F5F2;
+  background-color: #f7f5f2;
   box-sizing: border-box;
   padding: 15px;
 }
@@ -31,21 +31,18 @@ export default defineComponent({
     margin: 10px auto 0;
   }
 }
-@media screen and (orientation: landscape){
+@media screen and (orientation: landscape) {
   .sidebar {
     width: 100%;
     margin: 0 0 0 5px;
   }
 }
 
-@media (min-width: $desktop-width){
+@media (min-width: $desktop-width) {
   .sidebar {
     max-width: 500px;
     margin: 0 0 0 10px;
     padding: 15px 50px;
   }
 }
-
-
-
 </style>

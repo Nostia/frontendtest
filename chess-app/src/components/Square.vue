@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="squareClasses"
-    @click="handleClick"
-  >
+  <div :class="squareClasses" @click="handleClick">
     {{ squareText }}
   </div>
 </template>
@@ -26,23 +23,22 @@ export default defineComponent({
     isSquareActive() {
       return this.activeSquareId === this.squareId
     },
-    squareClasses(){
+    squareClasses() {
       return [
         this.isSquareWhite ? 'square-white' : 'square-black',
-        this.isSquareActive ?'square-clicked': '',
-        'square']
+        this.isSquareActive ? 'square-clicked' : '',
+        'square'
+      ]
     },
     squareText() {
-      if (this.squareId.includes('1'))
-          return this.squareId.charAt(0)
-      if (this.squareId.includes('a'))
-        return this.squareId.charAt(1)
+      if (this.squareId.includes('1')) return this.squareId.charAt(0)
+      if (this.squareId.includes('a')) return this.squareId.charAt(1)
       return ''
     }
   },
   methods: {
     handleClick(): void {
-      this.handleSquareClicked(this.squareId)
+      (this.handleSquareClicked as (squareId: string) => void)(this.squareId)
     }
   }
 })
@@ -60,14 +56,14 @@ export default defineComponent({
 }
 
 .square-clicked {
-  background-color: #6BB2DB !important;
+  background-color: #6bb2db !important;
 }
 
 .square-white {
-  background-color: #F7F5F2;
+  background-color: #f7f5f2;
 }
 
 .square-black {
-  background-color: #C4AF9A;
+  background-color: #c4af9a;
 }
 </style>

@@ -38,7 +38,7 @@ export default defineComponent({
   },
   methods: {
     handleClick(): void {
-      (this.handleSquareClicked as (squareId: string) => void)(this.squareId)
+      ;(this.handleSquareClicked as (squareId: string) => void)(this.squareId)
     }
   }
 })
